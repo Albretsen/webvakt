@@ -1,4 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components/macro';
+import '@fontsource/dm-sans/900.css';
+import '@fontsource/dm-sans/400.css';
 
 export const GlobalStyle = createGlobalStyle`
   html,
@@ -8,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   #root {
@@ -26,4 +29,15 @@ export const GlobalStyle = createGlobalStyle`
     font-family: inherit;
     font-size: inherit;
   }
+`;
+
+interface TitleProps {
+  fontSize?: string;
+  color?: string;
+}
+
+export const Title = styled.p<TitleProps>`
+  font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: ${props => props.fontSize || '2rem'};
+  color: ${props => props.color || 'red'};
 `;
