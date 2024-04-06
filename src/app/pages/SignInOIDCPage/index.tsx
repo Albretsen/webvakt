@@ -35,7 +35,7 @@ export function SignInOIDCPage() {
           height: '100vh',
         }}
       >
-        {true ? (
+        {isLoading ? (
           <PacmanLoader color="#4A3AFF" />
         ) : error ? (
           <p>Error: {error}</p>
