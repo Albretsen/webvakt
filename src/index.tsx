@@ -24,8 +24,22 @@ import { configureAppStore } from 'store/configureStore';
 
 import reportWebVitals from 'reportWebVitals';
 
+import createStore from 'react-auth-kit/createStore';
+import AuthProvider from 'react-auth-kit';
+
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
 // Initialize languages
 import './locales/i18n';
+
+// Initialize auth storage
+const authStore = createStore({
+  authName: '_auth',
+  authType: 'cookie',
+  cookieDomain: window.location.hostname,
+  cookieSecure: window.location.protocol === 'https:',
+});
 
 const store = configureAppStore();
 const root = ReactDOM.createRoot(
@@ -36,7 +50,10 @@ root.render(
   <Provider store={store}>
     <HelmetProvider>
       <React.StrictMode>
-        <App />
+        <AuthProvider store={authStore}>
+          <ToastContainer />
+          <App />
+        </AuthProvider>
       </React.StrictMode>
     </HelmetProvider>
   </Provider>,

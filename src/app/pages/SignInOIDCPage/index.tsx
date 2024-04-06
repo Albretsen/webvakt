@@ -1,13 +1,25 @@
-import * as React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { getHashParamValue } from '../../../utils/parsing';
+import { useAuthSignIn } from '../../../hooks/useAuthSignIn';
+import { toast } from 'react-toastify';
+import PacmanLoader from 'react-spinners/PacmanLoader';
 
 export function SignInOIDCPage() {
+  const { authenticate, isLoading, error } = useAuthSignIn();
+
+  const handleSignIn = async token => {
+    try {
+      await authenticate(token);
+      toast.success('Signed in successfully');
+    } catch (error) {
+      toast.error('Sign in failed.');
+    }
+  };
+
   useEffect(() => {
-    const id_token = getHashParamValue(window.location.hash, 'id_token');
-    console.log(id_token);
-  }, []);
+    handleSignIn(getHashParamValue(window.location.hash, 'id_token'));
+  });
 
   return (
     <>
@@ -15,7 +27,22 @@ export function SignInOIDCPage() {
         <title>SignInOIDC</title>
         <meta name="description" content="SignInOIDC Page" />
       </Helmet>
-      <span>SignInOIDC</span>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100vh',
+        }}
+      >
+        {true ? (
+          <PacmanLoader color="#4A3AFF" />
+        ) : error ? (
+          <p>Error: {error}</p>
+        ) : (
+          <p>Signing in...</p>
+        )}
+      </div>
     </>
   );
 }
