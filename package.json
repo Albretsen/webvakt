@@ -35,7 +35,7 @@
     "inquirer-directory": "2.2.0",
     "jest-styled-components": "7.1.1",
     "lint-staged": "13.0.3",
-    "lucide-react": "0.363.0",
+    "lucide-react": "0.365.0",
     "node-plop": "0.26.3",
     "plop": "2.7.6",
     "prettier": "2.7.1",
