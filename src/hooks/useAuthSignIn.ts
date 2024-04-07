@@ -4,7 +4,7 @@ import useSignIn from 'react-auth-kit/hooks/useSignIn';
 export function useAuthSignIn() {
   const signIn = useSignIn();
   const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const authenticate = useCallback(
     async token => {

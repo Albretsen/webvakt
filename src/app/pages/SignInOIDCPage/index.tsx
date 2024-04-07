@@ -26,7 +26,7 @@ export function SignInOIDCPage() {
       try {
         await authenticate(token);
         toast.success('Signed in successfully');
-        navigate('/');
+        navigate('/dashboard', { replace: true });
       } catch (error) {
         toast.error('Sign in failed.');
       }

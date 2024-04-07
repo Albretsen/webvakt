@@ -16,6 +16,9 @@ import { HomePage } from './pages/HomePage/Loadable';
 import { SignInOIDCPage } from './pages/SignInOIDCPage';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
+import { DashboardPage } from './pages/DashboardPage';
+import { SignInPage } from './pages/SignInPage';
+import { SignOutPage } from './pages/SignOutPage';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -32,6 +35,9 @@ export function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/signin-oidc" element={<SignInOIDCPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/sign-in" element={<SignInPage />} />
+        <Route path="/sign-out" element={<SignOutPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <GlobalStyle />
