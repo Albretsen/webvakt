@@ -12,7 +12,7 @@ function WelcomeUser() {
 function signOutClickHandler(instance) {
   const logoutRequest = {
     account: instance.getAccountByHomeId(0),
-    postLogoutRedirectUri: 'http://localhost:3000',
+    postLogoutRedirectUri: 'https://webvakt.com',
   };
   instance.logoutRedirect(logoutRequest);
 }
