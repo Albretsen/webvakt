@@ -7,40 +7,46 @@
  */
 
 import * as React from 'react';
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { GlobalStyle } from 'styles/global-styles';
 
 import { HomePage } from './pages/HomePage/Loadable';
-import { SignInOIDCPage } from './pages/SignInOIDCPage';
+import { ProtectedRoute } from './pages/ProtectedRoute';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import { DashboardPage } from './pages/DashboardPage';
-import { SignInPage } from './pages/SignInPage';
-import { SignOutPage } from './pages/SignOutPage';
+
+import { msalInstance } from 'config/MSALConfig';
+
+import { MsalProvider } from '@azure/msal-react';
 
 export function App() {
   const { i18n } = useTranslation();
+
   return (
     <BrowserRouter>
-      <Helmet
-        titleTemplate="%s - React Boilerplate"
-        defaultTitle="React Boilerplate"
-        htmlAttributes={{ lang: i18n.language }}
-      >
-        <meta name="description" content="A React Boilerplate application" />
-      </Helmet>
+      <MsalProvider instance={msalInstance}>
+        <Helmet
+          titleTemplate="%s - WebVakt"
+          defaultTitle="WebVakt"
+          htmlAttributes={{ lang: i18n.language }}
+        >
+          <meta name="description" content="A WebVakt application" />
+        </Helmet>
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/signin-oidc" element={<SignInOIDCPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/sign-in" element={<SignInPage />} />
-        <Route path="/sign-out" element={<SignOutPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-      <GlobalStyle />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/dashboard" element={<ProtectedRoute />}>
+            <Route index element={<DashboardPage />} />
+            {/* EXAMPLE EXTRA PAGE (/dashboard/overview): <Route path="overview" element={<OverviewPage />} />*/}
+          </Route>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+        <GlobalStyle />
+      </MsalProvider>
     </BrowserRouter>
   );
 }

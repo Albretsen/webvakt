@@ -1,19 +1,32 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useNavigate } from 'react-router-dom';
-import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated';
+import { useMsal } from '@azure/msal-react';
+
+function WelcomeUser() {
+  const { accounts } = useMsal();
+  const username = accounts[0].username;
+
+  return <p>Welcome, {username}</p>;
+}
+
+function signOutClickHandler(instance) {
+  const logoutRequest = {
+    account: instance.getAccountByHomeId(0),
+    postLogoutRedirectUri: 'http://localhost:3000',
+  };
+  instance.logoutRedirect(logoutRequest);
+}
+
+function SignOutButton() {
+  const { instance } = useMsal();
+
+  return (
+    <button onClick={() => signOutClickHandler(instance)}>Sign Out</button>
+  );
+}
 
 export function DashboardPage() {
-  const navigate = useNavigate();
-  const isAuthenticated = useIsAuthenticated();
-
-  React.useEffect(() => {
-    if (!isAuthenticated) {
-      navigate('/sign-in');
-    }
-  }, [navigate, isAuthenticated]);
-
-  return isAuthenticated ? (
+  return (
     <>
       <Helmet>
         <title>Dashboard Page</title>
@@ -22,6 +35,9 @@ export function DashboardPage() {
           content="A Boilerplate application Dashboard Page"
         />
       </Helmet>
+      <p>User is signed in</p>
+      <WelcomeUser />
+      <SignOutButton />
     </>
-  ) : null;
+  );
 }
