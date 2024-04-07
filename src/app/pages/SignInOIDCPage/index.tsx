@@ -1,25 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { getHashParamValue } from '../../../utils/parsing';
-import { useAuthSignIn } from '../../../hooks/useAuthSignIn';
 import { toast } from 'react-toastify';
 import PacmanLoader from 'react-spinners/PacmanLoader';
+import { useAuthSignIn } from '../../../hooks/useAuthSignIn';
+import { useNavigate } from 'react-router-dom';
 
 export function SignInOIDCPage() {
   const { authenticate, isLoading, error } = useAuthSignIn();
-
-  const handleSignIn = async token => {
-    try {
-      await authenticate(token);
-      toast.success('Signed in successfully');
-    } catch (error) {
-      toast.error('Sign in failed.');
-    }
-  };
+  const [token, setToken] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
-    handleSignIn(getHashParamValue(window.location.hash, 'id_token'));
-  });
+    const hash = window.location.hash;
+    const tokenFromUrl = new URLSearchParams(hash.substring(1)).get('id_token');
+    if (tokenFromUrl) {
+      setToken(tokenFromUrl);
+    }
+  }, []);
+
+  useEffect(() => {
+    const signInAutomatically = async () => {
+      if (!token) {
+        return;
+      }
+      try {
+        await authenticate(token);
+        toast.success('Signed in successfully');
+        navigate('/');
+      } catch (error) {
+        toast.error('Sign in failed.');
+      }
+    };
+
+    signInAutomatically();
+  }, [token, authenticate, navigate]);
 
   return (
     <>
@@ -40,7 +54,7 @@ export function SignInOIDCPage() {
         ) : error ? (
           <p>Error: {error}</p>
         ) : (
-          <p>Signing in...</p>
+          <p>Signing you in...</p>
         )}
       </div>
     </>

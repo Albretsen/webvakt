@@ -11,14 +11,31 @@ export function useAuthSignIn() {
       setIsLoading(true);
       setError(null);
       try {
+        const response = await fetch(
+          'https://localhost:32770/api/userprofile',
+          {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+          },
+        );
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch user data');
+        }
+
+        const userData = await response.json();
+
         const isSignedIn = signIn({
           auth: {
             token: token,
             type: 'Bearer',
           },
           userState: {
-            name: 'React User',
-            uid: 123456,
+            givenName: userData.givenName || '',
+            familyName: userData.familyName || '',
           },
         });
 
