@@ -1,13 +1,8 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { MsalAuthenticationTemplate, useMsal } from '@azure/msal-react';
-import {
-  InteractionRequiredAuthError,
-  InteractionStatus,
-} from '@azure/msal-browser';
+import { MsalAuthenticationTemplate } from '@azure/msal-react';
 import { InteractionType } from '@azure/msal-browser';
 import PacmanLoader from 'react-spinners/PacmanLoader';
-import { useEffect, useState } from 'react';
 
 export const ProtectedRoute = () => {
   return (
@@ -16,13 +11,12 @@ export const ProtectedRoute = () => {
       errorComponent={ErrorComponent}
       loadingComponent={LoadingComponent}
     >
-      <ProtectedComponent></ProtectedComponent>
       <Outlet />
     </MsalAuthenticationTemplate>
   );
 };
 
-function ProtectedComponent() {
+/*function ProtectedComponent() {
   const { instance, inProgress, accounts } = useMsal();
   const [apiData, setApiData] = useState<String | null>(null);
 
@@ -39,12 +33,10 @@ function ProtectedComponent() {
         .then(accessTokenResponse => {
           // Acquire token silent success
           let accessToken = accessTokenResponse.accessToken;
-          setApiData('test');
-          console.log('Access token: ', accessToken.toString());
           // Call your API with token
-          /*callApi(accessToken).then(response => {
+          callback(accessToken).then(response => {
             setApiData(response);
-          });*/
+          });
         })
         .catch(error => {
           if (error instanceof InteractionRequiredAuthError) {
@@ -56,7 +48,7 @@ function ProtectedComponent() {
   }, [instance, accounts, inProgress, apiData]);
 
   return <p>Return your protected content here: {apiData}</p>;
-}
+}*/
 
 function ErrorComponent({ error }) {
   return (
