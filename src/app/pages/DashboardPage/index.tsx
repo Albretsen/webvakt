@@ -12,7 +12,7 @@ function WelcomeUser() {
 function signOutClickHandler(instance) {
   const logoutRequest = {
     account: instance.getAccountByHomeId(0),
-    postLogoutRedirectUri: 'https://webvakt.com',
+    postLogoutRedirectUri: process.env.REACT_APP_BASE_URL,
   };
   instance.logoutRedirect(logoutRequest);
 }

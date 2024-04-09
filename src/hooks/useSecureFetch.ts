@@ -25,7 +25,9 @@ function useSecureFetch(
   useEffect(() => {
     if (inProgress === 'none' && accounts.length > 0 && !accessToken) {
       const accessTokenRequest = {
-        scopes: ['https://yourtenant.onmicrosoft.com/yourappid/.default'],
+        scopes: [
+          'https://webvaktcom.onmicrosoft.com/c454c749-11df-4138-a7b8-1047b0241bba/user.read',
+        ],
         account: accounts[0],
       };
 
