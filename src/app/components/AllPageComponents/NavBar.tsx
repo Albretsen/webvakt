@@ -23,13 +23,11 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 import { ReactSVG } from 'react-svg';
-import { useTranslation } from 'react-i18next';
 import { t } from 'utils/t';
 
 export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
   const theme = useTheme();
-  const { t } = useTranslation();
 
   return (
     <Box>
@@ -284,16 +282,18 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: t('nav.home'),
+    href: 'home',
   },
   {
     label: t('nav.features'),
+    href: 'features',
   },
   {
     label: t('nav.pricing'),
-    href: '#',
+    href: 'pricing',
   },
   {
     label: t('nav.demonstration'),
-    href: '#',
+    href: 'demonstration',
   },
 ];
