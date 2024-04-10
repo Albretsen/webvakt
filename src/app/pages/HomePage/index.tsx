@@ -11,7 +11,6 @@ export function HomePage() {
         <meta name="description" content="A Boilerplate application homepage" />
       </Helmet>
       <NavBar />
-      <p>Version 0.0.1</p>
       <Prices />
     </>
   );

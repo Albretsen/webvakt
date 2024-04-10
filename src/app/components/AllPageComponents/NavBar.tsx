@@ -15,6 +15,7 @@ import {
   useBreakpointValue,
   useDisclosure,
   useTheme,
+  Spacer,
 } from '@chakra-ui/react';
 import {
   HamburgerIcon,
@@ -24,10 +25,12 @@ import {
 } from '@chakra-ui/icons';
 import { ReactSVG } from 'react-svg';
 import { t } from 'utils/t';
+import { useTranslation } from 'react-i18next';
 
 export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
   const theme = useTheme();
+  const { t } = useTranslation();
 
   return (
     <Box>
@@ -72,10 +75,11 @@ export default function NavBar() {
               }}
             ></ReactSVG>
           </Text>
-
+          <Spacer />
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
           </Flex>
+          <Spacer />
         </Flex>
 
         <Stack
@@ -89,9 +93,9 @@ export default function NavBar() {
             fontSize={'sm'}
             fontWeight={400}
             variant={'link'}
-            href={'#'}
+            href={'dashboard'}
           >
-            Sign In
+            {t('nav.sign_in')}
           </Button>
           <Button
             as={'a'}
@@ -99,13 +103,13 @@ export default function NavBar() {
             fontSize={'sm'}
             fontWeight={600}
             color={'white'}
-            bg={'pink.400'}
+            bg={theme.colors.main[500]}
             href={'#'}
             _hover={{
-              bg: 'pink.300',
+              bg: theme.colors.main[300],
             }}
           >
-            Sign Up
+            {t('nav.sign_up')}
           </Button>
         </Stack>
       </Flex>
