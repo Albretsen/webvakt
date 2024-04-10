@@ -32,6 +32,9 @@ import { ToastContainer } from 'react-toastify';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 
+import { ChakraProvider } from '@chakra-ui/react';
+import theme from 'styles/theme';
+
 // Initialize languages
 import './locales/i18n';
 
@@ -51,18 +54,20 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <Provider store={store}>
-    <HelmetProvider>
-      <React.StrictMode>
-        <AuthProvider store={authStore}>
-          <QueryClientProvider client={queryClient}>
-            <ToastContainer />
-            <App />
-          </QueryClientProvider>
-        </AuthProvider>
-      </React.StrictMode>
-    </HelmetProvider>
-  </Provider>,
+  <ChakraProvider theme={theme}>
+    <Provider store={store}>
+      <HelmetProvider>
+        <React.StrictMode>
+          <AuthProvider store={authStore}>
+            <QueryClientProvider client={queryClient}>
+              <ToastContainer />
+              <App />
+            </QueryClientProvider>
+          </AuthProvider>
+        </React.StrictMode>
+      </HelmetProvider>
+    </Provider>
+  </ChakraProvider>,
 );
 
 // Hot reloadable translation json files

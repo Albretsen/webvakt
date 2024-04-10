@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Prices from 'app/components/FrontPageComponents/Prices/Prices';
+import NavBar from 'app/components/AllPageComponents/NavBar';
 
 export function HomePage() {
   return (
@@ -9,6 +10,7 @@ export function HomePage() {
         <title>HomePage</title>
         <meta name="description" content="A Boilerplate application homepage" />
       </Helmet>
+      <NavBar />
       <p>Version 0.0.1</p>
       <Prices />
     </>
