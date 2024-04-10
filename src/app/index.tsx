@@ -22,6 +22,8 @@ import { msalInstance } from 'config/MSALConfig';
 
 import { MsalProvider } from '@azure/msal-react';
 
+import NavBar from './components/AllPageComponents/NavBar';
+
 export function App() {
   const { i18n } = useTranslation();
 
@@ -35,7 +37,7 @@ export function App() {
         >
           <meta name="description" content="A WebVakt application" />
         </Helmet>
-
+        <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/dashboard" element={<ProtectedRoute />}>

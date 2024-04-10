@@ -10,8 +10,9 @@ export function HomePage() {
         <title>HomePage</title>
         <meta name="description" content="A Boilerplate application homepage" />
       </Helmet>
-      <NavBar />
-      <Prices />
+      <div className="container">
+        <Prices />
+      </div>
     </>
   );
 }

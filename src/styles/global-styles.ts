@@ -29,6 +29,22 @@ export const GlobalStyle = createGlobalStyle`
     font-family: inherit;
     font-size: inherit;
   }
+
+  .full-width {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  .container {
+    max-width: 1280px; 
+    margin: 0 auto; 
+    width: 100%; 
+    padding: 0 20px; 
+}
 `;
 
 interface TitleProps {

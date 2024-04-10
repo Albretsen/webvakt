@@ -26,6 +26,13 @@ import {
 import { ReactSVG } from 'react-svg';
 import { t } from 'utils/t';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
+import {
+  AiOutlineHome,
+  AiOutlineFire,
+  AiOutlineDollarCircle,
+  AiOutlineExperiment,
+} from 'react-icons/ai';
 
 export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -65,15 +72,23 @@ export default function NavBar() {
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}
           >
-            <ReactSVG
-              src={'./assets/branding/logo.svg'}
-              beforeInjection={svg => {
-                svg.setAttribute(
-                  'style',
-                  `width: auto; height: 25px; fill: ${theme.colors.main[500]};`,
-                );
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                height: '100%',
               }}
-            ></ReactSVG>
+            >
+              <ReactSVG
+                src={'./assets/branding/logo.svg'}
+                beforeInjection={svg => {
+                  svg.setAttribute(
+                    'style',
+                    `width: 100px; height: auto; fill: ${theme.colors.main[500]};`,
+                  );
+                }}
+              ></ReactSVG>
+            </div>
           </Text>
           <Spacer />
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -106,7 +121,7 @@ export default function NavBar() {
             bg={theme.colors.main[500]}
             href={'#'}
             _hover={{
-              bg: theme.colors.main[300],
+              bg: theme.colors.main[400],
             }}
           >
             {t('nav.sign_up')}
@@ -122,9 +137,34 @@ export default function NavBar() {
 }
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue('gray.600', 'gray.200');
-  const linkHoverColor = useColorModeValue('gray.800', 'white');
+  const theme = useTheme();
+  const location = useLocation();
+  const linkColor = useColorModeValue(
+    theme.colors.gray[800],
+    theme.colors.gray[100],
+  );
+  const linkHoverColor = useColorModeValue(theme.colors.main[500], 'white');
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
+
+  // Determine if the nav item is the current page
+  const isCurrentNavItem = href => {
+    // Special handling for the 'home' nav item with empty href
+    if (href === '') {
+      // Matches the base path ('/', empty, or '#')
+      const basePath =
+        location.pathname === '/' ||
+        location.pathname === '' ||
+        location.hash === '#';
+      return basePath;
+    } else {
+      // Normalize the href to ensure it starts with a '/'
+      const normalizedHref = `/${href}`;
+      // Get the current path, excluding search and hash for comparison
+      const path = location.pathname;
+      // Check if the normalized current path matches the normalized href
+      return path === normalizedHref;
+    }
+  };
 
   return (
     <Stack direction={'row'} spacing={4}>
@@ -135,15 +175,28 @@ const DesktopNav = () => {
               <Box
                 as="a"
                 p={2}
-                href={navItem.href ?? '#'}
+                href={navItem.href || '/'} // Fallback to '/' for home item to make it clickable and redirect correctly
                 fontSize={'sm'}
                 fontWeight={500}
-                color={linkColor}
+                color={
+                  isCurrentNavItem(navItem.href) ? linkHoverColor : linkColor
+                } // Highlight the current nav item
+                display="flex"
+                alignItems="center"
                 _hover={{
                   textDecoration: 'none',
                   color: linkHoverColor,
                 }}
               >
+                {navItem.icon &&
+                  React.createElement(navItem.icon, {
+                    style: {
+                      marginRight: '0px',
+                      position: 'relative',
+                      right: '5px',
+                      top: '-1px',
+                    },
+                  })}
                 {navItem.label}
               </Box>
             </PopoverTrigger>
@@ -281,23 +334,28 @@ interface NavItem {
   subLabel?: string;
   children?: Array<NavItem>;
   href?: string;
+  icon: any;
 }
 
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: t('nav.home'),
-    href: 'home',
+    href: '',
+    icon: AiOutlineHome,
   },
   {
     label: t('nav.features'),
     href: 'features',
+    icon: AiOutlineExperiment,
   },
   {
     label: t('nav.pricing'),
     href: 'pricing',
+    icon: AiOutlineDollarCircle,
   },
   {
     label: t('nav.demonstration'),
     href: 'demonstration',
+    icon: AiOutlineFire,
   },
 ];
