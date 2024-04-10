@@ -19,9 +19,6 @@ jobs:
         with:
           submodules: true
           lfs: false
-      - name: Load Environment Variables
-        run: |
-          export $(cat .env.production | xargs)
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1

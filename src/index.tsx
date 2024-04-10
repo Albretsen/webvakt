@@ -30,8 +30,12 @@ import AuthProvider from 'react-auth-kit';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
+import { QueryClient, QueryClientProvider } from 'react-query';
+
 // Initialize languages
 import './locales/i18n';
+
+const queryClient = new QueryClient();
 
 // Initialize auth storage
 const authStore = createStore({
@@ -51,8 +55,10 @@ root.render(
     <HelmetProvider>
       <React.StrictMode>
         <AuthProvider store={authStore}>
-          <ToastContainer />
-          <App />
+          <QueryClientProvider client={queryClient}>
+            <ToastContainer />
+            <App />
+          </QueryClientProvider>
         </AuthProvider>
       </React.StrictMode>
     </HelmetProvider>
