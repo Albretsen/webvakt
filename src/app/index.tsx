@@ -24,6 +24,8 @@ import { MsalProvider } from '@azure/msal-react';
 
 import NavBar from './components/AllPageComponents/NavBar';
 
+import { switchLanguage } from 'locales/i18n';
+
 export function App() {
   const { i18n } = useTranslation();
 
@@ -37,6 +39,16 @@ export function App() {
         >
           <meta name="description" content="A WebVakt application" />
         </Helmet>
+        <div className="container">
+          <p>Work in progress 👷</p>
+          <button
+            onClick={() => {
+              switchLanguage();
+            }}
+          >
+            Change language
+          </button>
+        </div>
         <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />

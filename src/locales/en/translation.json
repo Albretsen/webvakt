@@ -6,5 +6,37 @@
     "demonstration": "Demonstration",
     "sign_in": "Sign in",
     "sign_up": "Sign up"
+  },
+  "hero": {
+    "try_for_free": "Try for free",
+    "headline": "Notifies you about",
+    "headline_highlight": "changes online",
+    "description": "WebVakt monitors the information you want, and notifies you when something changes. For example, price changes at competitors!",
+    "start_price": "Starting at $0/month"
+  },
+  "pricing": {
+    "free": "Free",
+    "standard": "Standard",
+    "pro": "Pro",
+    "price_per_month_free": "$0",
+    "price_per_month_standard": "$4.99",
+    "price_per_month_pro": "$49.99",
+    "month_shortened": "mo",
+    "choose_pack": "Choose pack",
+    "features": {
+      "websites_1": "1 website",
+      "websites_10": "10 websites",
+      "websites_100": "100 websites",
+      "email_notification": "Email notification",
+      "monitor_text": "Monitor text",
+      "monitor_whole_websites": "Monitor whole websites",
+      "technical_support": "Technical support",
+      "css_selectors": "CSS selectors",
+      "custom_http_headers": "Custom HTTP headers",
+      "daily_monitoring": "Daily monitoring",
+      "hourly_monitoring": "Hourly monitoring",
+      "per_minute_monitoring": "Per-minute monitoring",
+      "screenshot_changes": "Screenshot changes"
+    }
   }
 }

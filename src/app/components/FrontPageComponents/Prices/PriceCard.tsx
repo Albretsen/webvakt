@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components/macro';
 import { CircleCheck } from 'lucide-react';
 import { Button } from './GeneralUi/Button';
+import { t } from 'utils/t';
 
 interface PriceCardProps {
   name: string;
@@ -17,7 +18,7 @@ export default function PriceCard(props: PriceCardProps) {
         <NameText>{name}</NameText>
         <div>
           <PriceText>{price}</PriceText>
-          <PriceByline>/mnd</PriceByline>
+          <PriceByline>/{t('pricing.month_shortened')}</PriceByline>
         </div>
       </div>
       <FeaturesContainer>
@@ -29,7 +30,7 @@ export default function PriceCard(props: PriceCardProps) {
         ))}
       </FeaturesContainer>
       <ButtonContainer>
-        <Button>Velg pakke</Button>
+        <Button>{t('pricing.choose_pack')}</Button>
       </ButtonContainer>
     </Wrapper>
   );

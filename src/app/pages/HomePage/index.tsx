@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Prices from 'app/components/FrontPageComponents/Prices/Prices';
+import Hero from 'app/components/FrontPageComponents/Hero/Hero';
 
 export function HomePage() {
   return (
@@ -10,6 +11,7 @@ export function HomePage() {
         <meta name="description" content="A Boilerplate application homepage" />
       </Helmet>
       <div className="container">
+        <Hero />
         <Prices />
       </div>
     </>

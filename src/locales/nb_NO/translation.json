@@ -4,5 +4,37 @@
     "features": "Funksjoner",
     "pricing": "Priser",
     "demonstration": "Demonstrasjon"
+  },
+  "hero": {
+    "try_for_free": "Prøv gratis",
+    "headline": "Varsler deg om",
+    "headline_highlight": "endringer på nett",
+    "description": "WebVakt overvåker den infoen du ønsker, og varsler deg når noe endrer seg. For eksempel, prisendringer hos konkurrenter!",
+    "start_price": "Startpris 0 kr/mnd"
+  },
+  "pricing": {
+    "free": "Gratis",
+    "standard": "Standard",
+    "pro": "Pro",
+    "price_per_month_free": "0kr",
+    "price_per_month_standard": "49kr",
+    "price_per_month_pro": "499kr",
+    "month_shortened": "mnd",
+    "choose_pack": "Velg pakke",
+    "features": {
+      "websites_1": "1 nettside",
+      "websites_10": "10 nettsider",
+      "websites_100": "100 nettsider",
+      "email_notification": "E-post notifikasjon",
+      "monitor_text": "Overvåk tekst",
+      "monitor_whole_websites": "Overvåk hele nettsider",
+      "technical_support": "Hjelp av tekniker",
+      "css_selectors": "CSS selectors",
+      "custom_http_headers": "Egendefinerte HTTP headers",
+      "daily_monitoring": "Daglig overvåking",
+      "hourly_monitoring": "Timevis overvåking",
+      "per_minute_monitoring": "Overvåking per minutt",
+      "screenshot_changes": "Skjermbilde av endringer"
+    }
   }
 }
