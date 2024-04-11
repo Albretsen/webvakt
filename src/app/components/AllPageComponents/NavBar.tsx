@@ -80,7 +80,7 @@ export default function NavBar() {
               }}
             >
               <ReactSVG
-                src={'./assets/branding/logo.svg'}
+                src={'/assets/branding/logo.svg'}
                 beforeInjection={svg => {
                   svg.setAttribute(
                     'style',

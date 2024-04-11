@@ -96,7 +96,7 @@ export default function Hero() {
         <Box>
           <Image
             borderRadius="lg"
-            src={'./assets/homepage/boy_on_computer.png'}
+            src={'/assets/homepage/boy_on_computer.png'}
             alt="Hero Image"
             objectFit="cover"
             width={'1000px'}
