@@ -67,10 +67,13 @@ export default function NavBar() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Text
+          <Flex
+            flex={{ base: 1 }}
+            justify={{ base: 'center', md: 'start' }}
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}
+            alignItems={'center'}
           >
             <div
               style={{
@@ -89,7 +92,7 @@ export default function NavBar() {
                 }}
               ></ReactSVG>
             </div>
-          </Text>
+          </Flex>
           <Spacer />
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
