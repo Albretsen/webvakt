@@ -7,6 +7,7 @@
  */
 
 import * as React from 'react';
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -19,8 +20,8 @@ import { useTranslation } from 'react-i18next';
 import { DashboardPage } from './pages/DashboardPage';
 
 import { msalInstance } from 'config/MSALConfig';
-
 import { MsalProvider } from '@azure/msal-react';
+import AuthEventComponent from 'utils/authEvents';
 
 import NavBar from './components/AllPageComponents/NavBar';
 
@@ -31,6 +32,7 @@ export function App() {
 
   return (
     <BrowserRouter>
+      <AuthEventComponent />
       <MsalProvider instance={msalInstance}>
         <Helmet
           titleTemplate="%s - WebVakt"
