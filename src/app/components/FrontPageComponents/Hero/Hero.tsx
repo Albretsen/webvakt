@@ -40,7 +40,7 @@ export default function Hero() {
             </Text>
           </Heading>
           <Text
-            fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif"
+            fontFamily="'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif"
             color={'gray.700'}
             maxWidth={'600px'}
           >
@@ -84,7 +84,9 @@ export default function Hero() {
                   right={'-170px'}
                   top={'-20px'}
                   fontSize={'lg'}
-                  fontFamily={'Caveat'}
+                  fontFamily={
+                    "'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+                  }
                 >
                   {t('hero.start_price')}
                 </Text>

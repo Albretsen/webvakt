@@ -99,7 +99,7 @@ export default function VideoDemonstration() {
             <Text as={'span'}>{t('videoDemonstration.title')}</Text>
           </Heading>
           <Text
-            fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif"
+            fontFamily="'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif"
             color={'gray.700'}
           >
             {t('videoDemonstration.description')}
@@ -117,7 +117,7 @@ export default function VideoDemonstration() {
                 <Text as={'span'}>{t('videoDemonstration.stepOneTitle')}</Text>
               </Heading>
               <Text
-                fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif"
+                fontFamily="'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif"
                 color={'gray.700'}
               >
                 {t('videoDemonstration.stepOneDescription')}
@@ -132,7 +132,7 @@ export default function VideoDemonstration() {
                 <Text as={'span'}>{t('videoDemonstration.stepTwoTitle')}</Text>
               </Heading>
               <Text
-                fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif"
+                fontFamily="'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif"
                 color={'gray.700'}
               >
                 {t('videoDemonstration.stepTwoDescription')}

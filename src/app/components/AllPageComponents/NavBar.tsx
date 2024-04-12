@@ -288,7 +288,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         }}
       >
         <Text
-          fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif"
+          fontFamily="'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif"
           fontWeight={600}
           color={useColorModeValue('gray.700', 'gray.200')}
         >
