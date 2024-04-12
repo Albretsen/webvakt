@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Features from 'app/components/FeaturesPage/Features';
-import { Box, Image, Spacer } from '@chakra-ui/react';
+import { Box, Image } from '@chakra-ui/react';
 
 export function FeaturesPage() {
   return (
