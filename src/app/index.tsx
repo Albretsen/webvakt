@@ -9,6 +9,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Box } from '@chakra-ui/react';
 
 import { GlobalStyle } from 'styles/global-styles';
 
@@ -26,13 +27,13 @@ import NavBar from './components/AllPageComponents/NavBar';
 import Footer from 'app/components/AllPageComponents/Footer';
 
 import { switchLanguage } from 'locales/i18n';
+import { FeaturesPage } from './pages/FeaturesPage';
 
 export function App() {
   const { i18n } = useTranslation();
 
   return (
     <BrowserRouter>
-      <AuthEventComponent />
       <MsalProvider instance={msalInstance}>
         <Helmet
           titleTemplate="%s - WebVakt"
@@ -41,8 +42,13 @@ export function App() {
         >
           <meta name="description" content="A WebVakt application" />
         </Helmet>
-        <NavBar />
-        <div className="container">
+        <AuthEventComponent />
+        <Box
+          display="flex"
+          flexDirection="column"
+          minHeight="100vh"
+          textAlign={'center'}
+        >
           <p>Work in progress 👷</p>
           <button
             onClick={() => {
@@ -51,16 +57,20 @@ export function App() {
           >
             Change language
           </button>
-        </div>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/dashboard" element={<ProtectedRoute />}>
-            <Route index element={<DashboardPage />} />
-            {/* EXAMPLE EXTRA PAGE (/dashboard/overview): <Route path="overview" element={<OverviewPage />} />*/}
-          </Route>
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-        <Footer />
+          <NavBar />
+          <Box flex="1" className="container">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/features" element={<FeaturesPage />} />
+              <Route path="/dashboard" element={<ProtectedRoute />}>
+                <Route index element={<DashboardPage />} />
+                {/* EXAMPLE EXTRA PAGE (/dashboard/overview): <Route path="overview" element={<OverviewPage />} />*/}
+              </Route>
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Box>
+          <Footer />
+        </Box>
         <GlobalStyle />
       </MsalProvider>
     </BrowserRouter>

@@ -47,7 +47,7 @@ export default function Footer() {
       >
         <Box />
         <Box />
-        <Text>© 2024 WebVakt. Alle rettigheter forbeholdt</Text>
+        <Text>Opphavsrett © 2024 WebVakt | Alle rettigheter forbeholdt</Text>
       </Container>
     </Box>
   );
