@@ -11,7 +11,8 @@ export function HomePage() {
         <title>HomePage</title>
         <meta name="description" content="A Boilerplate application homepage" />
       </Helmet>
-      <div className="container">
+      <div className="container" style={{ overflowX: 'hidden' }}>
+        {' '}
         <Hero />
         <VideoDemonstration />
         <Prices />

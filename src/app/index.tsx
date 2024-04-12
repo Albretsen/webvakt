@@ -23,6 +23,7 @@ import { MsalProvider } from '@azure/msal-react';
 import AuthEventComponent from 'utils/authEvents';
 
 import NavBar from './components/AllPageComponents/NavBar';
+import Footer from 'app/components/AllPageComponents/Footer';
 
 import { switchLanguage } from 'locales/i18n';
 
@@ -59,6 +60,7 @@ export function App() {
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        <Footer />
         <GlobalStyle />
       </MsalProvider>
     </BrowserRouter>

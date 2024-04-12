@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Stack, Heading, Text } from '@chakra-ui/react';
+import { Stack, Heading, Text, Box, Image } from '@chakra-ui/react';
 import styled from 'styled-components/macro';
 import PriceCard from './PriceCard';
 import { t } from 'utils/t';
@@ -22,6 +22,22 @@ export default function Prices() {
           Vi har en gratis pakke for testing av systemet, og 2 betalte pakker
           for de som ønsker mer.
         </Text>
+        <Box
+          display={{ base: 'none', md: 'block' }}
+          position="absolute"
+          width={{ base: '0', md: '700px' }}
+          mt={'190px'}
+          ml={'-290px'}
+          zIndex={-1}
+        >
+          <Image
+            src="/assets/home/finger.png"
+            alt="Hero Image"
+            objectFit="cover"
+            width="100%"
+            height="100%"
+          />
+        </Box>
       </Stack>
       <PriceCard
         name={t('pricing.free')}
