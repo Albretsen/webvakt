@@ -31,7 +31,7 @@ export default function Hero() {
         >
           <Heading
             fontWeight={700}
-            fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
+            fontSize={{ base: '4xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}
           >
             {t('hero.headline')} <br />
@@ -67,7 +67,7 @@ export default function Hero() {
               </Button>
               <Box
                 position={'absolute'}
-                right={{ base: 'auto', sm: '4', md: '8' }}
+                right={{ base: '8', sm: '8', md: '8' }}
                 top={'-10px'}
                 transform={'rotate(10deg)'}
               >
@@ -93,7 +93,12 @@ export default function Hero() {
           </Stack>
         </Stack>
 
-        <Box>
+        <Box
+          display="flex"
+          alignItems="center"
+          height="100%"
+          width={{ base: '0px', md: '1000px' }}
+        >
           <Image
             borderRadius="lg"
             src={'/assets/home/boy_on_computer.png'}

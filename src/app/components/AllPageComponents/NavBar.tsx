@@ -68,7 +68,6 @@ export default function NavBar() {
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
           <Flex
-            flex={{ base: 1 }}
             justify={{ base: 'center', md: 'start' }}
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
@@ -93,11 +92,11 @@ export default function NavBar() {
               ></ReactSVG>
             </div>
           </Flex>
-          <Spacer />
+          <Spacer display={{ base: 'none', md: 'flex' }} />
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
           </Flex>
-          <Spacer />
+          <Spacer display={{ base: 'none', md: 'flex' }} />
         </Flex>
 
         <Stack
@@ -149,22 +148,16 @@ const DesktopNav = () => {
   const linkHoverColor = useColorModeValue(theme.colors.main[500], 'white');
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
-  // Determine if the nav item is the current page
   const isCurrentNavItem = href => {
-    // Special handling for the 'home' nav item with empty href
     if (href === '') {
-      // Matches the base path ('/', empty, or '#')
       const basePath =
         location.pathname === '/' ||
         location.pathname === '' ||
         location.hash === '#';
       return basePath;
     } else {
-      // Normalize the href to ensure it starts with a '/'
       const normalizedHref = `/${href}`;
-      // Get the current path, excluding search and hash for comparison
       const path = location.pathname;
-      // Check if the normalized current path matches the normalized href
       return path === normalizedHref;
     }
   };
@@ -295,8 +288,9 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         }}
       >
         <Text
+          fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif"
           fontWeight={600}
-          color={useColorModeValue('gray.600', 'gray.200')}
+          color={useColorModeValue('gray.700', 'gray.200')}
         >
           {label}
         </Text>
