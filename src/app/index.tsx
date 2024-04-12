@@ -40,6 +40,7 @@ export function App() {
         >
           <meta name="description" content="A WebVakt application" />
         </Helmet>
+        <NavBar />
         <div className="container">
           <p>Work in progress 👷</p>
           <button
@@ -50,7 +51,6 @@ export function App() {
             Change language
           </button>
         </div>
-        <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/dashboard" element={<ProtectedRoute />}>

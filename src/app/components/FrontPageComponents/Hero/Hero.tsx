@@ -72,7 +72,7 @@ export default function Hero() {
                 transform={'rotate(10deg)'}
               >
                 <Icon
-                  as={Arrow} // Ensure `Arrow` is defined elsewhere in your code
+                  as={Arrow}
                   color={useColorModeValue('gray.800', 'gray.300')}
                   w={71}
                   position={'absolute'}
@@ -87,6 +87,7 @@ export default function Hero() {
                   fontFamily={
                     "'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif"
                   }
+                  whiteSpace={'nowrap'}
                 >
                   {t('hero.start_price')}
                 </Text>

@@ -54,7 +54,7 @@ export default function VideoDemonstration() {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/oMfHa0YiCuk?autoplay=1"
+                src="https://www.youtube.com/embed/7cMOjf4C9KE?si=gX9RQUaDJ_97W1FF&amp;start=7"
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
