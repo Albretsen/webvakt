@@ -14,6 +14,16 @@
     "description": "WebVakt monitors the information you want, and notifies you when something changes. For example, price changes at competitors!",
     "start_price": "Starting at $0/month"
   },
+  "videoDemonstration": {
+    "title": "Super simple!",
+    "description": "Our interface makes it easy for you to choose what you want to keep track of. You can decide if you want notifications for all changes immediately, or if you prefer a weekly report!",
+    "stepOneTitle": "No. 1",
+    "stepOneDescription": "Click on what you want to keep an eye on",
+    "stepTwoTitle": "No. 2",
+    "stepTwoDescription": "Get notifications when it suits you",
+    "playButton": "Play Button",
+    "heroImageAlt": "Hero Image"
+  },
   "pricing": {
     "free": "Free",
     "standard": "Standard",
