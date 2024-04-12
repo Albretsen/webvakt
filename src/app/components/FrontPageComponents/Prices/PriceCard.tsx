@@ -48,7 +48,7 @@ const NameText = styled.h2`
   color: #170f49;
   margin: 0;
   font-weight: 900;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 `;
 
 const PriceText = styled.span`

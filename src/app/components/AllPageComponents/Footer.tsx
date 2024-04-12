@@ -1,37 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Container,
-  Stack,
-  Text,
-  useColorModeValue,
-  useTheme,
-} from '@chakra-ui/react';
-import { ReactSVG } from 'react-svg';
-
-const Logo = (props: any) => {
-  let theme = useTheme();
-
-  return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        height: '100%',
-      }}
-    >
-      <ReactSVG
-        src={'/assets/branding/logo.svg'}
-        beforeInjection={svg => {
-          svg.setAttribute(
-            'style',
-            `width: 100px; height: auto; fill: ${theme.colors.main[500]};`,
-          );
-        }}
-      ></ReactSVG>
-    </div>
-  );
-};
+import { Box, Container, Stack, Text } from '@chakra-ui/react';
 
 /*const SocialButton = ({
   children,
