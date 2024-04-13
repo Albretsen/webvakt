@@ -77,6 +77,7 @@ export default function Prices() {
 const Wrapper = styled.div`
   position: relative;
   display: flex;
+  min-height: 700px;
   gap: 50px;
   padding: 20px;
   flex: 1;
