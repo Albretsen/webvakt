@@ -42,6 +42,7 @@ const Wrapper = styled.div`
   gap: 20px;
   flex: 1;
   padding: 10px;
+  z-index: 10;
 `;
 
 const NameText = styled.h2`
@@ -75,6 +76,7 @@ const Feature = styled.div`
 
 const FeatureText = styled.span`
   color: #6f6c90;
+  text-align: left;
 `;
 
 const ButtonContainer = styled.div`
