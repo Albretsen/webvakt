@@ -28,6 +28,8 @@ import Footer from 'app/components/AllPageComponents/Footer';
 
 import { switchLanguage } from 'locales/i18n';
 import { FeaturesPage } from './pages/FeaturesPage';
+import { PricingPage } from './pages/PricingPage';
+import { Demonstrationpage } from './pages/DemonstrationPage';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -62,6 +64,8 @@ export function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/features" element={<FeaturesPage />} />
+              <Route path="/pricing" element={<PricingPage />} />
+              <Route path="/demonstration" element={<Demonstrationpage />} />
               <Route path="/dashboard" element={<ProtectedRoute />}>
                 <Route index element={<DashboardPage />} />
                 {/* EXAMPLE EXTRA PAGE (/dashboard/overview): <Route path="overview" element={<OverviewPage />} />*/}

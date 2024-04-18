@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Container, Stack, Text } from '@chakra-ui/react';
+import { Box, Container, Stack, Text, useTheme } from '@chakra-ui/react';
+import { ReactSVG } from 'react-svg';
 
 /*const SocialButton = ({
   children,
@@ -34,6 +35,8 @@ import { Box, Container, Stack, Text } from '@chakra-ui/react';
 };*/
 
 export default function Footer() {
+  let theme = useTheme();
+
   return (
     <Box position="relative" height="auto" overflow="hidden">
       <Container
@@ -45,7 +48,15 @@ export default function Footer() {
         justify={{ base: 'center', md: 'space-between' }}
         align={{ base: 'center', md: 'center' }}
       >
-        <Box />
+        <ReactSVG
+          src={'/assets/branding/logo.svg'}
+          beforeInjection={svg => {
+            svg.setAttribute(
+              'style',
+              `width: 100px; height: auto; fill: ${theme.colors.main[500]};`,
+            );
+          }}
+        ></ReactSVG>
         <Box />
         <Text>Opphavsrett © 2024 WebVakt | Alle rettigheter forbeholdt</Text>
       </Container>

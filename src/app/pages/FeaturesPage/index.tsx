@@ -7,7 +7,7 @@ export function FeaturesPage() {
   return (
     <>
       <Helmet>
-        <title>HomePage</title>
+        <title>FeaturesPage</title>
         <meta
           name="description"
           content="A Boilerplate application FeaturesPage"

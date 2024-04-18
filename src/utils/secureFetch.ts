@@ -29,6 +29,7 @@ async function secureFetch(
   try {
     const response = await msalInstance.acquireTokenSilent(accessTokenRequest);
     accessToken = response.accessToken;
+    console.log(accessToken);
   } catch (error) {
     if (error instanceof InteractionRequiredAuthError) {
       throw new Error('Interactive authentication required');

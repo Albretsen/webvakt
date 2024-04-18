@@ -68,7 +68,7 @@ export default function VideoDemonstration() {
                 _hover={{ bg: 'transparent' }}
                 icon={<PlayIcon w={12} h={12} />}
                 size={'lg'}
-                color={'main.400'}
+                color={'white'}
                 position={'absolute'}
                 left={'50%'}
                 top={'50%'}
