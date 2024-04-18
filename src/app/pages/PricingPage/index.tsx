@@ -7,7 +7,7 @@ export function PricingPage() {
   return (
     <>
       <Helmet>
-        <title>PricingPage</title>
+        <title>Pricing</title>
         <meta
           name="description"
           content="A Boilerplate application PricingPage"

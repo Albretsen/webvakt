@@ -8,7 +8,7 @@ export function HomePage() {
   return (
     <>
       <Helmet>
-        <title>HomePage</title>
+        <title>Home</title>
         <meta name="description" content="A Boilerplate application homepage" />
       </Helmet>
       <div className="container" style={{ overflowX: 'hidden' }}>

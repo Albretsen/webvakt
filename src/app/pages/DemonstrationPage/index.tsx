@@ -6,7 +6,7 @@ export function Demonstrationpage() {
   return (
     <>
       <Helmet>
-        <title>Demonstrationpage</title>
+        <title>Demonstration</title>
         <meta
           name="description"
           content="A Boilerplate application Demonstrationpage"

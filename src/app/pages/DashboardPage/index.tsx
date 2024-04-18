@@ -29,7 +29,7 @@ export function DashboardPage() {
   return (
     <>
       <Helmet>
-        <title>Dashboard Page</title>
+        <title>Dashboard</title>
         <meta
           name="description"
           content="A Boilerplate application Dashboard Page"
